@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML Web Page</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    td:not(:first-child) {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- your HTML code here 👇 -->
+<h1>Jelly of the Month Club</h1>
+<h3>Make all your friends jelly of your of your stock of jelly!</h3>
+<div> Here at JOTMC Inc., we are constantly striving to supply our customers with the highest-quality and most unique jellies on a monthly basis. For the jelly love in your
+  life (or yourself!), this is the figt that keeps on giving all year round. We offer three tiers of monthly jelly joy, and each one offers their own perks. Here is a breakdown
+  of each, as well as your monthly price:
+</div>
+<p><!-- Entered for the purpose of the line break.!--></p>
+<table border="2">
+  <tr>
+    <th></th>
+    <th>Basic Plan</th>
+    <th>Deluxe Plan</th>
+    <th>Jelly Giant Plan</th>
+  </tr>
+  <tr>
+    <td>Three new curated jellies per month.</td>
+    <td>&#10003;</td>
+    <td>&#10003;</td>
+    <td>&#10003;</td>
+  </tr>
+  <tr>
+    <td>Monthly jellies come with commemorative mason jars</td>
+    <td></td>
+    <td>&#10003;</td>
+    <td>&#10003;</td>
+  </tr>
+    <tr>
+      <td>Free bonus jar of preserves bi-monthly</td>
+      <td></td>
+      <td>&#10003;</td>
+      <td>&#10003;</td>
+    </tr>
+  <tr>
+    <td>Free yearly tickets to Jelly Con</td>
+    <td></td>
+    <td></td>
+    <td>&#10003;</td>
+  </tr>
+  <tr>
+    <td>Monthly Pricing</td>
+    <td>&#36;30</td>
+    <td>&#36;50</td>
+    <td>&#36;60</td>
+  </tr>
+</table>
+<p>
+<form action="none">
+  <label for="username"> <input type="text" name="username" size="25" placeholder="Your Name" id="username"></label>
+  <label for="planselection"><select name="plan" id="planselection">
+    <option value="three_jellies">three jellies</option>
+    <option value="jellies_w_jar">Monthly Jellies With Commemorative Jar</option>
+    <option value="free_bonus_jar">Free Bonus Jar of Preserves bi-monthly</option>
+    <option value="jelly_con">Free Yearly Tickets to Jelly Con</option>
+  </select></label>
+  <input type="submit" name="submit_button"/>
+</form>
+</p>
+</body>
+</html>
