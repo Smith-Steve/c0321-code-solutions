@@ -1,0 +1,12 @@
+h1, h2{
+  font-family: 'Akaya Telivigala', cursive;
+}
+
+body{
+  font-family: 'GFS Neohellenic', sans-serif;
+} /* I originally applied this selector to 'p', but  given that your text
+said 'to the body', I went with this instead. (instruction 4) */
+
+p {
+  line-height: 1.6em;
+}
