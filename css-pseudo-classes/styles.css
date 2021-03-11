@@ -1,0 +1,13 @@
+thead {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+tr:nth-child(2n) {
+  background-color: rgb(220, 220, 220);
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
