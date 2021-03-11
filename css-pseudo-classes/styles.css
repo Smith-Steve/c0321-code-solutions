@@ -10,4 +10,5 @@ tr:nth-child(2n) {
 button:hover {
   background-color: black;
   color: white;
+  cursor: pointer;
 }
