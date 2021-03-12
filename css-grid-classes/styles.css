@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 
 .container {
   max-width: 800px;
@@ -7,10 +10,22 @@
 
 .row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
 }
 
-div.column {
-  align-content: flex-start;
+.column-one-fourth {
+  width: 25%;
+}
+
+.column-one-third {
+  width: calc(100% / 3);
+}
+
+.column-two-thirds {
+  width: 67%;
+}
+
+/* flex-wrap can only take three args - nowrap, wrap, wrap-reverse */
+
+img {
+  width: 100%;
 }
