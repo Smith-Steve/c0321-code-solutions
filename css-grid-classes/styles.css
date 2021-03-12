@@ -1,0 +1,16 @@
+
+.container {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+div.column {
+  align-content: flex-start;
+}
