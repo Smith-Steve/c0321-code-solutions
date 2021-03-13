@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Brandon Grotesque', sans-serif;
+}
+
+fieldset {
+  max-width: 400px;
+  height: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  border: none;
+}
+
+legend {
+  text-align: center;
+  color: rgba(236, 93, 87, 255);
+  font-size: 1.5em;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
+
+input,
+select {
+  border-radius: 7px;
+  display: inline-block;
+  justify-content: stretch;
+  border-color: lightgray;
+  height: 70px;
+  width: 900px;
+  font-size: 2rem;
+  padding-left: 15px;
+}
+
+select {
+  background-color: #f3f3f3;
+}
+
+input {
+  margin: 0 0 50px 0;
+}
+
+button {
+  font-weight: 550;
+  height: 70px;
+  width: 200px;
+  border-radius: 35px;
+  margin-top: 20px;
+  font-size: 1.9rem;
+  background-color: rgba(236, 93, 87, 255);
+  color: #fff;
+  border: none;
+}
+
+div:last-child {
+  float: right;
+}
+
+label {
+  font-weight: 550;
+  font-size: 1.3em;
+  word-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 5px;
+  padding-left: 15px;
+}
