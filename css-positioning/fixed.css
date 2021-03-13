@@ -8,6 +8,9 @@ html {
 
   /* your code here */
   position: fixed;
-  left: 640px;
-  top: 150px;
+  display: inline-block;
+  width: 100%
+
+  /* left: 640px;
+  top: 150px; */
 }
