@@ -1,0 +1,44 @@
+* {
+  font-family: 'Karla', sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+  text-align: center;
+}
+
+.column-full {
+  width: 100%;
+  justify-content: center;
+  flex-basis: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  letter-spacing: 0.1rem;
+}
+
+h3 {
+  position: relative;
+  font-size: 0.6rem;
+  display: inline;
+  top: 0;
+}
+
+p.column-full-description {
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: middle;
+  margin: 0 290px 0 290px;
+}
+
+img.img-left {
+  position: relative;
+  right: 270px;
+  top: 1px;
+  margin: 0 0 0 0;
+  display: inline;
+}
