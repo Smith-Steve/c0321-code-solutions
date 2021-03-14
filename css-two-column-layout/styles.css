@@ -8,6 +8,7 @@
   margin-left: auto;
   align-items: center;
   text-align: center;
+  position: relative;
 }
 
 .column-full {
@@ -17,15 +18,22 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+.column-half {
+  position: relative;
+}
+
 h1 {
   letter-spacing: 0.1rem;
 }
 
 h3 {
-  position: relative;
   font-size: 0.6rem;
-  display: inline;
   top: 0;
+}
+
+h3.square-1 {
+  position: absolute;
+  left: 200px;
 }
 
 p.column-full-description {
@@ -36,9 +44,6 @@ p.column-full-description {
 }
 
 img.img-left {
-  position: relative;
-  right: 270px;
-  top: 1px;
-  margin: 0 0 0 0;
-  display: inline;
+  position: absolute;
+  left: 200px;
 }
