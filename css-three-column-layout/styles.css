@@ -35,6 +35,8 @@ p {
 p.description {
   margin-top: 25px;
   margin-bottom: 25px;
+  font-size: 1.2rem;
+  font-weight: 200;
 }
 
 h1 {
