@@ -12,19 +12,23 @@
 }
 
 .column-third {
-  float: left;
-  width: 33.33%;
+  /* float: left;
+  width: 33.33%; */
   color: aliceblue;
   box-sizing: border-box;
   position: relative;
 }
 
+.row-three-column {
+  display: flex;
+}
+
 .image-container {
+  flex-basis: 100%;
+  display: flex;
   width: 128px;
   height: 128px;
   margin: 20px 96px 20px 96px;
-  position: relative;
-  float: left;
   border-radius: 75%;
   overflow: hidden;
   background: #fff;
@@ -33,8 +37,8 @@
 img {
   padding: 20px;
   background-color: white;
-  margin-left: 12%;
-  margin-top: 12%;
+  justify-content: center;
+  align-items: center;
 }
 
 p {
