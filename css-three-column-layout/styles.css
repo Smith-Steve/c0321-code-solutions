@@ -19,12 +19,22 @@
   position: relative;
 }
 
+.image-container {
+  width: 128px;
+  height: 128px;
+  margin: 20px 96px 20px 96px;
+  position: relative;
+  float: left;
+  border-radius: 75%;
+  overflow: hidden;
+  background: #fff;
+}
+
 img {
-  background-color: white;
-  box-sizing: border-box;
   padding: 20px;
-  border-radius: 200px;
-  margin-left: 35%;
+  background-color: white;
+  margin-left: 12%;
+  margin-top: 12%;
 }
 
 p {
