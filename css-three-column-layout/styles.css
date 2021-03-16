@@ -11,20 +11,20 @@
   margin-left: auto;
 }
 
-.column-third {
+.column-thirds {
   /* float: left;
   width: 33.33%; */
   color: aliceblue;
-  box-sizing: border-box;
-  position: relative;
 }
 
 .row-three-column {
   display: flex;
+  align-items: center;
 }
 
 .image-container {
-  flex-basis: 100%;
+  align-items: center;
+  justify-content: center;
   display: flex;
   width: 128px;
   height: 128px;
@@ -37,8 +37,6 @@
 img {
   padding: 20px;
   background-color: white;
-  justify-content: center;
-  align-items: center;
 }
 
 p {
