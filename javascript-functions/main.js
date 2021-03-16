@@ -6,10 +6,11 @@ var seconds = convertMinutesToSeconds(6);
 console.log('6 minutes is equivalent to: ' + seconds + ' seconds');
 
 function greet(name) {
-  console.log('Hello ' + name);
+  var returnValue = 'Hello ' + name;
+  return returnValue;
 }
 var name = 'Steve';
-greet(name);
+console.log(greet(name));
 
 function getArea(width, height) {
   return width * height;
