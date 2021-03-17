@@ -6,44 +6,39 @@
 .container {
   margin-right: auto;
   margin-left: auto;
-  align-items: center;
-  text-align: center;
-  position: relative;
+  max-width: 800px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .column-full {
   width: 100%;
-  justify-content: center;
-  flex-basis: auto;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .column-half {
-  position: relative;
+  width: 50%;
 }
 
-h1 {
-  letter-spacing: 0.1rem;
+.heading {
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-h3 {
-  font-size: 0.6rem;
-  top: 0;
+.item-box {
+  display: flex;
 }
 
-h3.square-1 {
-  position: absolute;
-  left: 200px;
+.buttonContainer {
+  display: flex;
+  flex-wrap: end;
+  float: right;
 }
 
-p.column-full-description {
-  font-size: 0.7rem;
-  text-align: center;
-  line-height: middle;
-  margin: 0 290px 0 290px;
-}
-
-img.img-left {
-  position: absolute;
-  left: 200px;
+button {
+  background-color: white;
+  color: #f44336;
+  border: 2px solid #f44336;
 }
