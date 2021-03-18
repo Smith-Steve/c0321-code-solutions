@@ -16,6 +16,20 @@
 
 .column-full {
   width: 100%;
+  text-align: center;
+}
+
+h1 {
+  letter-spacing: 0.2rem;
+}
+
+p {
+  color: #5e5e5e;
+  line-height: 1.5;
+}
+
+p.heading-text {
+  margin-bottom: 40px;
 }
 
 .column-half {
@@ -40,4 +54,8 @@ button {
   background-color: white;
   color: #f44336;
   border: 2px solid #f44336;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
