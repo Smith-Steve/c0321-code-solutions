@@ -1,7 +1,8 @@
 .container {
-  max-width: 1200px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .row-heading {
@@ -15,11 +16,26 @@
 }
 
 img {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 500px;
+  object-fit: scale-down;
 }
 
 .retail-card {
   display: block;
-  padding: 0.5rem;
+}
+
+.price-container {
+  min-height: 20px;
+  background-color: #fff2e7;
+  margin-right: 0.3rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+span.size-tag,
+del {
+  color: #e0e0e0;
+  font-size: 1.4rem;
+  font-weight: 100 thin;
 }
