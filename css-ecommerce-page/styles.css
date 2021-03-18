@@ -25,6 +25,7 @@ img {
 
 .retail-card {
   display: block;
+  margin: 0.7rem;
 }
 
 .price-container {
