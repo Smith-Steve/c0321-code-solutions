@@ -45,9 +45,9 @@ p.heading-text {
 }
 
 .buttonContainer {
-  display: flex;
-  flex-wrap: end;
-  float: right;
+  position: absolute;
+  right: 1100px;
+  bottom: 475px;
 }
 
 button {
