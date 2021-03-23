@@ -1,16 +1,16 @@
-var state = false;
+var isLightBulbOn = false;
 var $backRound = document.querySelector('.dark');
 var $button = document.querySelector('.off');
 
 function handleClick(event) {
-  if (state === false) {
+  if (isLightBulbOn === false) {
     $button.className = 'on';
     $backRound.className = 'light';
-    state = true;
+    isLightBulbOn = true;
   } else {
     $button.className = 'off';
     $backRound.className = 'dark';
-    state = false;
+    isLightBulbOn = false;
   }
 }
 
