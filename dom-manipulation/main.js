@@ -1,9 +1,10 @@
+var incrementer = 0;
+var $button = document.querySelector('.hot-button');
+
 function handleClick(event) {
   var $clickcount = document.querySelector('.click-count');
   $clickcount.textContent = 'Clicks: ' + incrementer++;
-}
 
-function changeText(event) {
   if (incrementer <= 4) {
     $button.className = 'hot-button cold';
   } else if (incrementer < 7) {
@@ -19,7 +20,4 @@ function changeText(event) {
   }
 }
 
-var $button = document.querySelector('.hot-button');
-var incrementer = 0;
 $button.addEventListener('click', handleClick);
-$button.addEventListener('click', changeText);
