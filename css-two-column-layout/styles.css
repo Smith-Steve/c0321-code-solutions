@@ -45,9 +45,7 @@ p.heading-text {
 }
 
 .buttonContainer {
-  position: absolute;
-  right: 1100px;
-  bottom: 475px;
+  text-align: center;
 }
 
 button {
