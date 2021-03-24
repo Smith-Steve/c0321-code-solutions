@@ -1,0 +1,16 @@
+* {
+  font-family: monospace;
+}
+
+.container {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.right {
+  color: chartreuse;
+}
+
+.wrong {
+  color: maroon;
+}
