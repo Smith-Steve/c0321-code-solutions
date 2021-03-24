@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+}
+
+.dark {
+  background-color: rgb(30, 30, 34);
+}
+
+.light {
+  background-color: #fef9f1;
+}
+
+button {
+  background-color: rgb(47, 47, 53);
+  height: 400px;
+  width: 400px;
+  border-radius: 210px;
+}
+
+button.off {
+  box-shadow: 20px 10px 5px black;
+}
+
+button.on {
+  background-color: #faea84;
+  box-shadow: 0.6em 0.6em 0.6em 0.6em #e7e3b8, -0.6em -0.6em 0.6em 0.6em #f7edab, -0.6em -0.6em 0.6em 0.6em #f7edab, -0.6em -0.6em 0.6em 0.6em #f7edab;
+  border: none;
+}
