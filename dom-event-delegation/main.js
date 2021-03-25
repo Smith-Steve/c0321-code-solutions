@@ -4,7 +4,7 @@ function handleClick(event) {
   console.log('event.target: ');
   console.log(event.target);
   console.log('Event.target tagname: ', event.target.tagName);
-  if (event.target.matches('Button')) {
+  if (event.target.tagName === 'BUTTON') {
     var $closestAncestor = event.target.closest('.task-list-item');
     console.log($closestAncestor);
     $closestAncestor.remove();
