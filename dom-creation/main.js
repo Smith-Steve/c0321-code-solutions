@@ -1,6 +1,4 @@
 /* exported pokedex */
-var i = 0;
-
 function renderPokemon(pokemon) {
   var columnThird = document.createElement('div');
   var headerTwo = document.createElement('h2');
@@ -96,7 +94,7 @@ var pokedex = [
 ];
 
 var $row = document.querySelector('.row');
-for (; i < pokedex.length; i++) {
+for (var i = 0; i < pokedex.length; i++) {
   var returnValue = renderPokemon(pokedex);
   $row.appendChild(returnValue);
 }
