@@ -1,15 +1,12 @@
 /* exported omit */
 function omit(source, keys) {
-  var newObject = {};
-  var increment = 0;
-  for (var key in source) {
-    if (keys[increment] !== source[key]) {
-      increment++;
-      newObject[key] = source[key];
-
-    } else {
-      increment++;
+  var object = {};
+  for (var i = 0; i < keys.length; i++) {
+    for (var key in source) {
+      if (source[key] !== keys[i]) {
+        object[key] = source[key];
+      }
     }
   }
-  return newObject;
+  return object;
 }
