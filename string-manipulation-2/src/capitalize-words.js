@@ -3,19 +3,13 @@ function capitalizeWords(string) {
   var words = string.toLowerCase();
   var sentence = words.split(' ');
   var newSentence = [];
-  var finalSentence = '';
-  for(var i = 0; i < sentence.length; i++)
-  {
+  for (var i = 0; i < sentence.length; i++) {
     var word = sentence[i];
     var newWord = '';
-    for(var k = 0; k < word.length; k++)
-    {
-      if(k === 0)
-      {
+    for (var k = 0; k < word.length; k++) {
+      if (k === 0) {
         newWord += word[k].toUpperCase();
-      }
-      else
-      {
+      } else {
         newWord += word[k].toLowerCase();
       }
     }

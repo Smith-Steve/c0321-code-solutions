@@ -1,6 +1,5 @@
 /* exported lastChars */
-function lastChars(length, string)
-{
+function lastChars(length, string) {
   var returnString = string.substr(-length);
-  return returnString
+  return returnString;
 }
