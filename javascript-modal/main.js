@@ -16,6 +16,7 @@ function handleClick(event) {
 function handleClickModal() {
   if (upDown === true) {
     $modal.className = 'modal';
+    upDown = false;
   }
 }
 
