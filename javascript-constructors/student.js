@@ -11,8 +11,7 @@ Student.prototype.getFullName = function () {
 };
 
 Student.prototype.getIntroduction = function () {
-  var student = new Student(this.firstName, this.lastName, this.subject);
-  var personFullName = student.getFullName();
-  var introSentence = `Hello, my name is ${personFullName} and I am studying ${this.subject}.`;
+  var personFullName = this.getFullName();
+  var introSentence = 'Hello, my name is ' + personFullName + ' and I am studying ' + this.subject + '.';
   return introSentence;
 };
