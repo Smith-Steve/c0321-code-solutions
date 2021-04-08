@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 575px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+i {
+  width: 80%;
+}
+
+.icon-holder {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+col.thick {
+  width: 100%;
+}
