@@ -4,7 +4,7 @@ var $icon = document.querySelectorAll('.fa-star');
 
 
 function handleClickIcon(event) {
-  var arrayOfIcons = $parentListener[0].children;
+  var arrayOfIcons = $icon;
   console.log(event.target);
 
   for (let i = 0; i < arrayOfIcons.length; i++) {
