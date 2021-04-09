@@ -19,6 +19,14 @@ body {
   align-items: center;
 }
 
+.container-2 {
+  display: flex;
+}
+
+.star-container {
+  display: flex;
+}
+
 i {
   width: 80%;
   margin-left: 5px;
