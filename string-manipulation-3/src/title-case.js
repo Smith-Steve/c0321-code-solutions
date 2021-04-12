@@ -5,17 +5,17 @@ function titleCase(title) {
   //    part of hyphenated major words.
   // Capitalize all words four letters or more.
 
-
   title = title.split(' ');
   for (var i = 0; i < title.length; i++) {
     if (title.indexOf(title[i]) === 0) {
       // Capitalize the first word of ALL words.
       var firstWord = capitalizeFirstLetter(title[i]);
       title.splice(i, 1, firstWord); // Removing old title and inserting capitalized one into its place.
-    } else if (isJavaScript(title[i])) {
-      title.splice(i, 1, 'JavaScript');
+    } else {
+      title.splice(i, 1, isJavaScript(title[i]));
     }
   }
+  console.log(title);
 }
 
 function capitalizeFirstLetter(word) {
@@ -29,5 +29,14 @@ function capitalizeFirstLetter(word) {
 function isJavaScript(word) {
 
   word = word.toLowerCase();
-  var search = word.search(':');
+  var search = word.search('javascript');
+  if (search !== -1) {
+    if (search.word(':') !== -1) {
+      return 'JavaScript:';
+    } else {
+      return 'JavaScript';
+    }
+  } else {
+    return word;
+  }
 }
