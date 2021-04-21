@@ -1,18 +1,42 @@
-var colors = ['red', 'white', 'blue'];
+function renderEntry(entry) {
+  var finalCard = document.createElement('div');
+  var column = document.createElement('div');
+  var header = document.createElement('h3');
+  var boldAuthor = document.createElement('b');
+  var boldTitle = document.createElement('b');
+  var author1 = document.createElement('span');
+  var title = document.createElement('b');
+  var image = document.createElement('img');
+  var cardTextHolder = document.createElement('div');
+  var bookImage = entry.book_image;
 
-console.log(colors[0], colors[1], colors[2]);
+  var numberHeading = document.createTextNode('#' + entry.rank);
+  var authorSlot = document.createTextNode('Author: '); // entry.author
+  var titleEntry = document.createTextNode('Title: '); // entry.title
+  var authorNode = document.createTextNode(entry.author);
 
-console.log('America is ', colors[0], ' ', colors[1], ' ', colors[2]);
+  author1.appendChild(authorNode);
 
-colors.splice(2, 1, 'green');
-console.log(colors);
+  boldAuthor.appendChild(authorSlot);
+  boldTitle.appendChild(titleEntry);
+  header.appendChild(numberHeading);
+  title.appendChild(boldTitle);
 
-console.log('Mexico is ', colors[0], ' ', colors[1], ' ', colors[2], ' and Italy is ', colors[2], ' ', colors[1], ' ', colors[0]);
-console.log(colors);
-var students = ['Steve', 'Dave', 'Thomas'];
-var numberOfStudents = students.length;
-console.log('There are ' + numberOfStudents + ' students in the class');
-var lastIndex = numberOfStudents - 1;
-var lastStudent = students[lastIndex];
-console.log(lastStudent);
-console.log(students);
+  // author.appendChild(authorEntry);
+
+  finalCard.setAttribute('class', 'card-container');
+  header.setAttribute('class', 'card-header');
+  column.setAttribute('class', 'column-full');
+  image.setAttribute('src', bookImage);
+  cardTextHolder.setAttribute('class', 'card-text-holder');
+
+  finalCard.appendChild(header);
+  finalCard.appendChild(image);
+  cardTextHolder.appendChild(boldAuthor);
+  cardTextHolder.appendChild(authorNode);
+  cardTextHolder.appendChild(title);
+  finalCard.appendChild(cardTextHolder);
+  return finalCard;
+}
+
+renderEntry();
