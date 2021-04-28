@@ -1,0 +1,10 @@
+console.log('The type of \'exports \' is: ', typeof exports);
+console.log('console log for global variable export is: ', exports);
+console.log('The type of \'requre\' is:', typeof require);
+console.log('console log for the global require is: ', require);
+console.log('The type of \'module\' is: ', typeof module);
+console.log('console log for the global module is: ', module);
+console.log('The type of \'__fileName\' is: ', typeof __filename);
+console.log('The console log for the global __fulename is: ', __filename);
+console.log('The type of \'__dirname\' is: ', typeof __dirname);
+console.log('The console log for the global __dirname is: ', __dirname);
