@@ -8,3 +8,4 @@ console.log('The type of \'__fileName\' is: ', typeof __filename);
 console.log('The console log for the global __fulename is: ', __filename);
 console.log('The type of \'__dirname\' is: ', typeof __dirname);
 console.log('The console log for the global __dirname is: ', __dirname);
+console.log('additional change.');
