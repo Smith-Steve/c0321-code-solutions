@@ -34,7 +34,7 @@ if (userCommand === 'create') {
     if (data.notes[userTextEntry]) {
       data.notes[userTextEntry] = userEntry[2];
     } else {
-      throw error;
+      console.error(error);
     }
     fs.writeFile(file, JSON.stringify(data, null, 2), error => {
       if (error) throw error;
@@ -43,7 +43,6 @@ if (userCommand === 'create') {
   });
 } else if (userCommand === 'delete' && userTextEntry) {
   fs.readFile(file, 'utf8', (error, data) => {
-    console.log('yo');
     if (error) throw error;
     data = JSON.parse(data);
     if (data.notes[userTextEntry]) {
@@ -54,7 +53,7 @@ if (userCommand === 'create') {
         console.log('success');
       });
     } else {
-      throw error;
+      console.error(error);
     }
   });
 } else {
