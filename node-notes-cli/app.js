@@ -9,7 +9,6 @@ if (userCommand === 'create') {
     if (error) throw error;
     data = JSON.parse(data);
     var nextId = data.nextId++;
-    // entry = { nextId: userTextEntry };
     data.notes[nextId] = userTextEntry;
 
     fs.writeFile(file, JSON.stringify(data, null, 2), error => {
