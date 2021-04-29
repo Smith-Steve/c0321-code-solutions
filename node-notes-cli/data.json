@@ -1,11 +1,24 @@
 {
-  "nextId": 8,
+  "nextId": 23,
   "notes": {
     "1": "The event loop is how a JavaScript runtime pushes asynchronous callbacks onto the stack once the stack is cleared.",
     "2": "Prototypal inheritance is how JavaScript objects delegate behavior.",
     "3": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined.",
     "4": "A closure is formed when a function retains access to variables in its lexical scope.",
     "7": "Wow, I'm sure glad I read  the tips.",
-    "8": "wow I can hardly believe how quickly you can put things together in node.js. Wowo."
+    "9": "wow",
+    "11": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "12": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "13": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "14": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "15": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "16": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "17": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "18": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "19": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "20": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "21": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "22": "wow I can hardly believe how quickly you can put things together in node.js. Wowo.",
+    "23": "wow I can hardly believe how quickly you can put things together in node.js. Wowo."
   }
 }
