@@ -7,9 +7,7 @@ document.addEventListener('keydown', function (event) {
     $letters[currentLetter].className = 'letter';
     $letters[currentLetter + 1].className = 'letter underline';
     currentLetter++;
-  } else if ($letters[currentLetter] !== undefined) {
-    $letters[currentLetter].style.color = 'maroon';
   } else {
-    process.exit();
+    $letters[currentLetter].style.color = 'maroon';
   }
 });
