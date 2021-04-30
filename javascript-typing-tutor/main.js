@@ -1,5 +1,15 @@
 var $letters = document.querySelectorAll('span');
-var lettersArray = [];
-for (var i = 0; i < $letters.length; i++) {
-  lettersArray.push($letters[i].innerHTML); // created if needed.
-}
+let currentLetter = 0;
+
+document.addEventListener('keydown', function (event) {
+  if ($letters[currentLetter].textContent.toLowerCase() === event.key) {
+    $letters[currentLetter].style.color = 'chartreuse';
+    $letters[currentLetter].className = 'letter';
+    $letters[currentLetter + 1].className = 'letter underline';
+    currentLetter++;
+  } else if ($letters[currentLetter] !== undefined) {
+    $letters[currentLetter].style.color = 'maroon';
+  } else {
+    process.exit();
+  }
+});

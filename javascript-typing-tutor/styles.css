@@ -14,3 +14,7 @@
 .wrong {
   color: maroon;
 }
+
+.letter.underline {
+  text-decoration: underline;
+}
