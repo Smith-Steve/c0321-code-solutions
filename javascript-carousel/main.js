@@ -40,7 +40,6 @@ function handleClickArrow(event) {
     moveStar($selectedStar, stars, activeStar);
   }
 }
-
 function moveStar(selectedStar, starNodeList, starIndex) {
   selectedStar = document.querySelector('.fas.fa-star');
   selectedStar.setAttribute('class', 'far fa-star');
