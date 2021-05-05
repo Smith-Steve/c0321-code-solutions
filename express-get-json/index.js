@@ -24,7 +24,11 @@ const grades = {
 };
 
 app.get('/api/grades', (request, response) => {
-  response.json(grades);
+  const gradesArray = [];
+  for (const id in grades) {
+    gradesArray.push(grades[id]);
+  }
+  response.json(gradesArray);
 });
 
 app.listen(port, () => {
