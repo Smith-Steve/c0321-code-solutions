@@ -1,7 +1,7 @@
 const pg = require('pg');
 const express = require('express');
 const app = express();
-const route = 3000;
+const port = 3000;
 app.use(express.json());
 
 const db = new pg.Pool({
@@ -50,32 +50,35 @@ app.delete('/api/studentGradeTable/:gradeId', (req, res, next) => {
       if (grade) {
         res.status(404).json({ error: `Cannot find gradeId: ${gradeId}` });
       } else {
-        res.status(202).send('Successful!');
+        res.status(204).send('Successful!');
       }
     }).catch(error => {
       console.error(error);
-      res.status(500).json({ error: `An unexpected error occurred. Please see the parameers that you entered. ${paramaters}` });
+      res.status(500).json({ error: 'An unexpected error occurred.' });
     });
 });
 
-app.post('/api/studentGradeTable/post', (req, res, next) => {
+app.post('/api/studentGradeTable', (req, res, next) => {
   const name = req.body.name;
   const course = req.body.course;
   const score = parseInt(req.body.grade, 10);
 
   if (!Number.isInteger(score) || score <= -1 || score >= 100) {
     res.status(400).json({ error: `please see the score you entered. ${score}` });
+    return;
   }
 
   if (!course) {
     res.status(400).json({ error: 'Course name must be entered as a string.' });
+    return;
   }
 
   if (!name) {
     res.status(400).json({ error: 'Student name must be entered as a string.' });
+    return;
   }
 
-  const sqlPostQuery = 'insert into "grades" ("name", "course", "score") values ($1, $2, $3 )';
+  const sqlPostQuery = 'insert into "grades" ("name", "course", "score") values ($1, $2, $3 ) returning*;';
   const sqlParametersPost = [name, course, score];
 
   db.query(sqlPostQuery, sqlParametersPost)
@@ -107,7 +110,7 @@ app.put('/api/studentGradeTable/put/:gradeId', (req, res) => {
     });
 });
 
-app.listen(route, () => {
+app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log('port 3000 enabled!');
 });
