@@ -14,5 +14,5 @@ const prices = numbers.map(price => new Intl.NumberFormat('en-US', { style: 'cur
 console.log(prices);
 const upperCased = languages.map(language => language.toUpperCase());
 console.log(upperCased);
-const firstLetters = languages.map(langaugeFirst => langaugeFirst.charAt(0).toUpperCase() + langaugeFirst.slice(1));
+const firstLetters = languages.map(langaugeFirst => langaugeFirst.charAt(0).toUpperCase());
 console.log(firstLetters);
