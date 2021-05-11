@@ -35,9 +35,7 @@ function transaction(accumulator, currentvalue) {
 const balance = account.reduce(transaction, 0);
 
 function combine(accumulator, currentValue) {
-  console.log(accumulator);
-  const key = Object.keys(currentValue);
-  accumulator[key] = currentValue[key];
+  Object.assign(accumulator, currentValue);
   return accumulator;
 }
 const composite = traits.reduce(combine);
