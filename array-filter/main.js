@@ -13,8 +13,11 @@ const names = [
 ];
 
 const evenNumbers = numbers.filter(number => number % 2 === 0);
+console.log(evenNumbers);
 const overFive = numbers.filter(workingNumber => workingNumber > 5);
+console.log(overFive);
 const startsWithE = names.filter(name => name[0].toLowerCase() === 'e');
+console.log(startsWithE);
 const haveD = names.filter(checkForD);
 console.log(haveD);
 
