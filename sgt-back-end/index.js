@@ -1,0 +1,114 @@
+const pg = require('pg');
+const express = require('express');
+const { response } = require('express');
+const app = express();
+const route = 3000;
+app.use(express.json());
+
+const db = new pg.Pool({
+  connectionString: 'postgres://dev:dev@localhost/studentGradeTable',
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+app.get('/api/studentGradeTable/:gradeId', (req, res, next) => {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({
+      error: '"gradeId" must be a positive integer'
+    });
+    return;
+  }
+  const sql = 'select * from "grades" where "gradeId" = $1';
+  const params = [gradeId];
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({ error: `Cannot find grade with "gradeId" ${gradeId}` });
+      } else {
+        res.json(grade);
+      }
+    }).catch(error => {
+      console.error(error);
+      res.status(500).json({ error: `An unexpectred error occurred. Please see the parameters that you entered for more information. ${params}` });
+    });
+});
+
+app.delete('/api/studentGradeTable/:gradeId', (req, res, next) => {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({ error: ' "gradeId" must be a postive integer' });
+    return;
+  }
+
+  const sqlDeleteQuery = 'delete from grades where "gradeId" = $1';
+  const paramaters = [gradeId];
+  db.query(sqlDeleteQuery, paramaters)
+    .then(result => {
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({ error: `Cannot find gradeId: ${gradeId}` });
+      } else {
+        res.status(202).send('Successful!');
+      }
+    }).catch(error => {
+      console.log(error);
+      res.status(500).json({ error: `An unexpected error occurred. Please see the parameers that you entered. ${parameters}` });
+    });
+});
+
+app.post('/api/studentGradeTable/post', (req, res, next) => {
+  const name = req.body.name;
+  const course = req.body.course;
+  const score = parseInt(req.body.grade, 10);
+
+  if (!Number.isInteger(score) || score <= -1 || score >= 100) {
+    res.status(400).json({ error: `please see the score you entered. ${score}` });
+  }
+
+  if (!course) {
+    res.status(400).json({ error: 'Course name must be entered as a string.' });
+  }
+
+  if (!name) {
+    res.status(400).json({ error: 'Student name must be entered as a string.' });
+  }
+
+  const sqlPostQuery = 'insert into "grades" ("name", "course", "score") values ($1, $2, $3 )';
+  const sqlParametersPost = [name, course, score];
+
+  db.query(sqlPostQuery, sqlParametersPost)
+    .then(result => {
+      const grade = result.rows[0];
+      res.status(201).json(grade);
+    }).catch(error => {
+      console.error(error);
+      res.status(500).json({ error: `please see entered parameters ${sqlParametersPost}` });
+    });
+});
+
+app.put('/api/studentGradeTable/put/:gradeId', (req, res) => {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  const score = parseInt(req.body.grade, 10);
+
+  if (!Number.isInteger(gradeId) && gradeId) {
+    res.status(400).json({ error: 'please see the id you entered.' });
+  }
+
+  const sqlUpdateQuery = 'update "grades" set "score" = $1 where "gradeId" = $2 ';
+  const sqlParametersUpdate = [score, gradeId];
+  db.query(sqlUpdateQuery, sqlParametersUpdate)
+    .then(result => {
+      res.status(200).json(result.rows[0]);
+    }).catch(error => {
+      console.error(error);
+      res.status(500).json({ error: `please see entered parameters ${sqlParametersUpdate}` });
+    });
+});
+
+app.listen(route, () => {
+  // eslint-disable-next-line no-console
+  console.log('port 3000 enabled!');
+});
