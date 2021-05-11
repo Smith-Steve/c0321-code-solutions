@@ -1,6 +1,5 @@
 const pg = require('pg');
 const express = require('express');
-const { response } = require('express');
 const app = express();
 const route = 3000;
 app.use(express.json());
@@ -48,14 +47,14 @@ app.delete('/api/studentGradeTable/:gradeId', (req, res, next) => {
   db.query(sqlDeleteQuery, paramaters)
     .then(result => {
       const grade = result.rows[0];
-      if (!grade) {
+      if (grade) {
         res.status(404).json({ error: `Cannot find gradeId: ${gradeId}` });
       } else {
         res.status(202).send('Successful!');
       }
     }).catch(error => {
-      console.log(error);
-      res.status(500).json({ error: `An unexpected error occurred. Please see the parameers that you entered. ${parameters}` });
+      console.error(error);
+      res.status(500).json({ error: `An unexpected error occurred. Please see the parameers that you entered. ${paramaters}` });
     });
 });
 
