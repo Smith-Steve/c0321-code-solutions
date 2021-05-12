@@ -11,7 +11,7 @@ const db = new pg.Pool({
   }
 });
 
-app.get('/api/studentGradeTable/:gradeId', (req, res, next) => {
+app.get('/api/grades/:gradeId', (req, res, next) => {
   const gradeId = parseInt(req.params.gradeId, 10);
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
@@ -25,32 +25,32 @@ app.get('/api/studentGradeTable/:gradeId', (req, res, next) => {
     .then(result => {
       const grade = result.rows[0];
       if (!grade) {
-        res.status(404).json({ error: `Cannot find grade with "gradeId" ${gradeId}` });
+        res.status(404).json({ error: `Cannot find grade with "gradeId" ${params}` });
       } else {
         res.json(grade);
       }
     }).catch(error => {
       console.error(error);
-      res.status(500).json({ error: `An unexpectred error occurred. Please see the parameters that you entered for more information. ${params}` });
+      res.status(500).json({ error: 'An unexpectred error occurred.' });
     });
 });
 
-app.delete('/api/studentGradeTable/:gradeId', (req, res, next) => {
+app.delete('/api/grades/:gradeId', (req, res, next) => {
   const gradeId = parseInt(req.params.gradeId, 10);
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({ error: ' "gradeId" must be a postive integer' });
     return;
   }
 
-  const sqlDeleteQuery = 'delete from grades where "gradeId" = $1';
+  const sqlDeleteQuery = 'delete from grades where "gradeId" = $1 returning*;';
   const paramaters = [gradeId];
   db.query(sqlDeleteQuery, paramaters)
     .then(result => {
       const grade = result.rows[0];
-      if (grade) {
+      if (!grade) {
         res.status(404).json({ error: `Cannot find gradeId: ${gradeId}` });
       } else {
-        res.status(204).send('Successful!');
+        res.status(204).send();
       }
     }).catch(error => {
       console.error(error);
@@ -58,7 +58,7 @@ app.delete('/api/studentGradeTable/:gradeId', (req, res, next) => {
     });
 });
 
-app.post('/api/studentGradeTable', (req, res, next) => {
+app.post('/api/grades', (req, res, next) => {
   const name = req.body.name;
   const course = req.body.course;
   const score = parseInt(req.body.grade, 10);
@@ -87,26 +87,28 @@ app.post('/api/studentGradeTable', (req, res, next) => {
       res.status(201).json(grade);
     }).catch(error => {
       console.error(error);
-      res.status(500).json({ error: `please see entered parameters ${sqlParametersPost}` });
+      res.status(500).json({ error: 'please see entered parameters' });
     });
 });
 
-app.put('/api/studentGradeTable/put/:gradeId', (req, res) => {
+app.put('/api/grades/:gradeId', (req, res) => {
   const gradeId = parseInt(req.params.gradeId, 10);
   const score = parseInt(req.body.grade, 10);
 
   if (!Number.isInteger(gradeId) && gradeId) {
     res.status(400).json({ error: 'please see the id you entered.' });
+    return;
   }
 
-  const sqlUpdateQuery = 'update "grades" set "score" = $1 where "gradeId" = $2 ';
+  const sqlUpdateQuery = 'update "grades" set "score" = $1 where "gradeId" = $2 returning*';
   const sqlParametersUpdate = [score, gradeId];
   db.query(sqlUpdateQuery, sqlParametersUpdate)
     .then(result => {
-      res.status(200).json(result.rows[0]);
+      const update = result.rows[0];
+      res.status(200).json(update);
     }).catch(error => {
       console.error(error);
-      res.status(500).json({ error: `please see entered parameters ${sqlParametersUpdate}` });
+      res.status(500).json({ error: 'please see entered parameters' });
     });
 });
 
