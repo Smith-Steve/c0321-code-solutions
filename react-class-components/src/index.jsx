@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 class CustomButton extends React.Component {
 
   render() {
-    return <button>{ this.state }</button>;
+    return <button>{ this.props.text }</button>;
   }
 }
 
