@@ -1,23 +1,42 @@
-.className {
+.button {
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgb(70, 70, 70);
+  border-radius: 0.25rem;
+  position: relative;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button.cold {
   background-color: purple;
 }
 
-.className2 {
+.button.cool {
   background-color: blueviolet;
 }
 
-.className3 {
+.button.tepid {
   background-color: crimson;
 }
 
-.className4 {
+.button.warm {
   background-color: orange;
 }
 
-.className5 {
+.button.hot {
   background-color: yellow;
 }
 
-.className6 {
-  background-color: white;
+.button.nuclear {
+  color: red;
+  border-color: red;
+  background-color: rgb(255, 255, 255);
 }

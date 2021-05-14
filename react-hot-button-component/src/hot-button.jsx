@@ -16,19 +16,19 @@ class CustomButton extends React.Component {
     const incrementorValue = this.state.incrementor;
     let returnValue;
     if (incrementorValue <= 3) {
-      returnValue = <button onClick={this.handleClick} className={'className'}>Hot Button!</button>;
+      returnValue = <button onClick={this.handleClick} className={'button '}>Hot Button!</button>;
     } else if (incrementorValue <= 6) {
-      returnValue = <button onClick={this.handleClick} className={'className2'}>Hot Button!</button>;
+      returnValue = <button onClick={this.handleClick} className={'button cool'}>Hot Button!</button>;
     } else if (incrementorValue <= 9) {
-      returnValue = <button onClick={this.handleClick} className={'className3'}>Hot Button!</button>;
+      returnValue = <button onClick={this.handleClick} className={'button tepid'}>Hot Button!</button>;
     } else if (incrementorValue <= 12) {
-      returnValue = <button onClick={this.handleClick} className={'className4'}>Hot Button!</button>;
+      returnValue = <button onClick={this.handleClick} className={'button warm'}>Hot Button!</button>;
     } else if (incrementorValue <= 15) {
-      returnValue = <button onClick={this.handleClick} className={'className5'}>Hot Button!</button>;
+      returnValue = <button onClick={this.handleClick} className={'button hot'}>Hot Button!</button>;
     } else if (incrementorValue < 18) {
-      returnValue = <button onClick={this.handleClick} className={'className6'}>Hot Button!</button>;
+      returnValue = <button onClick={this.handleClick} className={'button nuclear'}>Hot Button!</button>;
     } else {
-      return <button className={'className6'}>Hot Button!</button>;
+      return <button className={'button nuclear'}>Hot Button!</button>;
     }
     return (returnValue);
   }
