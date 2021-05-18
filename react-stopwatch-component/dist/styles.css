@@ -1,0 +1,21 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+div.counter-display {
+  position: relative;
+  left: 4.3rem;
+  top: 6.8rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 3rem;
+}
+
+.play-pause {
+  position: relative;
+  left: 4.5rem;
+  top: 0.5rem;
+}
