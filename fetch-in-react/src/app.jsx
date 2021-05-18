@@ -6,14 +6,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       users: [],
-      isLoading: true,
-      url: 'https://jsonplaceholder.typicode.com/users'
+      isLoading: true
     };
   }
 
   componentDidMount() {
     /* your code here */
-    fetch(this.state.url, { method: 'GET', headers: { 'Content-Type': 'application/json ' } })
+    fetch('https://jsonplaceholder.typicode.com/users', { method: 'GET', headers: { 'Content-Type': 'application/json ' } })
       .then(response => response.json())
       .then(data => this.setState({ users: data, isLoading: false }))
       .catch(error => error.log(error));
