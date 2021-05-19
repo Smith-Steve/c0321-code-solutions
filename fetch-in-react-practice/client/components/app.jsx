@@ -40,10 +40,10 @@ export default class App extends React.Component {
     * and specify the "Content-Type" header as "application/json"
     */
     newTodo = { toDoId: this.state.todos.length + 1, isCompleted: false }; const initMethod = { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newTodo) };
+    const newToDoArray = this.state.todos.slice();
     fetch('/api/todos', initMethod)
       .then(response => response.json())
       .then(returnedToDo => {
-        const newToDoArray = this.state.todos.slice();
         newToDoArray.push(returnedToDo);
         this.setState({ todos: newToDoArray });
       });
