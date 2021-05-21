@@ -57,11 +57,16 @@ app.post('/api/auth/sign-in', (req, res, next) => {
       if (!user) {
         throw new ClientError(401, 'cannot find username.');
       } else {
-        argon2
-          .verify(user.hashedPassword, password)
-          .then(userInformation => {
-            user.token = jwt.sign(userInformation.username, process.env.TOKEN_SECRET);
-            res.status(201).json(user.token);
+        const { userId, hashedPassword } = user;
+        return argon2
+          .verify(hashedPassword, password)
+          .then(isMatching => {
+            if (!isMatching) {
+              throw new ClientError(401, 'invalid login');
+            }
+            const payload = { userId, username };
+            const token = jwt.sign(payload, process.env.TOKEN_SECRET);
+            res.json({ token, user: payload });
           })
           .catch(err => next(err));
       }
