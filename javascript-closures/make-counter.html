@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+      var makeCounter = function () {
+        var privateCounter = 0;
+        function counterFunction(val) {
+          privateCounter += val;
+        }
+        return {
+          increment: function () {
+            counterFunction(1);
+          },
+
+          decrement: function () {
+            counterFunction(-1);
+          },
+
+          value: function () {
+            return privateCounter;
+          }
+        };
+      };
+
+      var counter1 = makeCounter().increment();
+      var counter2 = makeCounter();
+      alert(counter1.value());
+      alert(counter2.value());
+    </script>
+</body>
+</html>
