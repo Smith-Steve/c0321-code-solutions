@@ -77,7 +77,7 @@ app.delete('/api/notes/:id', (request, response) => {
       if (error) {
         return response.status(500).json({ error: 'An unexpected error occurred.' });
       } else {
-        return response.status(204).send();
+        return response.status(204).send({ success: 'deleted' });
       }
     });
   }
