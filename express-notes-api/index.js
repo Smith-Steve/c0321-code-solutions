@@ -85,5 +85,5 @@ app.delete('/api/notes/:id', (request, response) => {
 
 app.listen(route, () => {
   // eslint-disable-next-line no-console
-  console.log('listening on port 3000');
+  console.log('listening on express port 3000');
 });
