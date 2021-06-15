@@ -1,0 +1,49 @@
+When application is activated, the App component is mounted on
+the HTML element which is identified by the ID root.
+
+When the App compeonent is mounted, component Nav Bar and Page
+container are mounted within this component. They are always
+mounted no matter what.
+
+Within page container in the App component, a JavaScript
+expression is employed to render the component based on
+the web page. If there is no string in the path, the user is sent home.
+
+1.) A check is performed in the home component to see if
+    within context.user there is a value. If there is not,
+    which is the case, than the 'redirect' functional component
+    is called, with the value 'sign-in' passed into the 'to' object
+    of props. Then, the 'hash' method is called, on the url object,
+    which is just a string representing the current location of the
+    user. This method, inserts a # in front of whatever was in the
+    url before hand, but after the core url - so localhost:3000 becomes
+    at least 'localhost:3000/#' - since we passed props in as well
+    that contained 'sign-in' string, that is appended to the url
+    string, which is then 'localhost:3000/#sign-in'. That URL
+    is then inserted navigated to by the application.
+
+The user is then redirected to the auth-form component, with the props,
+'sign-in' passed.
+
+
+A post call is fired, which confirms the user name is valid, and the
+password is also valid. It undergoes a series of checks, and is entered
+into the database.
+
+
+The welcome message is changed based on the props that was recieved from
+the user as a consequence of the previous actions. In this case, it will be,
+'sign-in'. This causes the JavaSript expressions that carry the welcome
+message within the component to change to reflect that.
+
+The user then logs in by entering their credentials. Once they click the sign in
+button, a post method is fired at the '/api/auth/sign-in' route which then runs through A
+series of checks like  Was there a username/password entered at all? and then another
+series of checks are performed confirming that the user that whose credentials were entered
+into the form and passed through the submit function, were they actually found within the
+database? If they are not, an error is thrown, those credentials are then matched against
+what argon2 has stored in the database for the password. It compares the stored hash, vs
+what was entred by the user and then hashed, to check that they are the same. If they are
+the same, the user is accepted. if not, then the user is rejected.
+
+After all these checks are complete, the user is signed in, and the 
