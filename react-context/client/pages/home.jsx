@@ -16,7 +16,6 @@ const styles = {
 
 export default class Home extends React.Component {
   render() {
-
     if (!this.context.user) return <Redirect to="sign-in" />;
 
     return (
@@ -31,4 +30,4 @@ export default class Home extends React.Component {
     );
   }
 }
-Home.contextText = AppContext;
+Home.contextType = AppContext;

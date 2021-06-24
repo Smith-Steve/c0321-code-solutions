@@ -46,4 +46,5 @@ what argon2 has stored in the database for the password. It compares the stored 
 what was entred by the user and then hashed, to check that they are the same. If they are
 the same, the user is accepted. if not, then the user is rejected.
 
-After all these checks are complete, the user is signed in, and the 
+After all these checks are complete, the user is signed in, and the since there is a user name
+within context - we are skipped over the 'redirect' component and the meme is played.
