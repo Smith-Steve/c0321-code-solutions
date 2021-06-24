@@ -4,11 +4,21 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.state = { isOpen: true };
+    this.state = { isOpen: true, sideBar: 'open' };
   }
 
   handleClick() {
-    this.setState({ isOpen: !this.state.isOpen });
+    let sideBarControl;
+    if (this.state.sideBar === 'open') {
+      sideBarControl = 'slideClosed';
+    } else {
+      sideBarControl = 'open';
+    }
+    this.setState({ isOpen: !this.state.isOpen, sideBar: sideBarControl });
+  }
+
+  classChange() {
+
   }
 
   render() {
@@ -18,7 +28,7 @@ class Menu extends React.Component {
       return (
         <div className="row">
           <div className="column">
-            <div className="sidebar" id="sideBar">
+            <div className={`sideBar ${this.state.sideBar}`}>
               <h1>Home</h1>
               <a onClick={this.handleClick}><h4>Shopping</h4></a>
               <a onClick={this.handleClick}><h4>Computers</h4></a>
