@@ -15,25 +15,30 @@ class Menu extends React.Component {
     const onClick = this.state.isOpen;
 
     if (onClick) {
-      return (<div className="menu-Open" onClick={this.handleClick}>
-      <div className="sidenav">
-        <a onClick={this.handleClick}><h2>About</h2></a>
-        <a onClick={this.handleClick}><h2>Services</h2></a>
-        <a onClick={this.handleClick}><h2>Clients</h2></a>
-        <a onClick={this.handleClick}><h2>Contact</h2></a>
-      </div>
-    </div>);
-    } else {
       return (
-      <div className="row">
-        <div className="column-left">
-          <div className="Menu-Closed" onClick={this.handleClick}>
-            <i className="fa fa-bars fa-lg"></i>
+        <div className="row">
+          <div className="column">
+            <div className="sidebar" id="sideBar">
+              <h1>Home</h1>
+              <a onClick={this.handleClick}><h4>Shopping</h4></a>
+              <a onClick={this.handleClick}><h4>Computers</h4></a>
+              <a onClick={this.handleClick}><h4>Accessories</h4></a>
+              <a onClick={this.handleClick}><h4>Store</h4></a>
+              <a onClick={this.handleClick}><h4>Maps</h4></a>
+              <a onClick={this.handleClick}><h4>Televisions</h4></a>
+              <a onClick={this.handleClick}><h4>Posters</h4></a>
+            </div>
+            <div className="backRound" onClick={this.handleClick}></div>
           </div>
         </div>
-        <div className="column-right">
+      );
+    } else {
+      return (
+        <div className="row row-display">
+          <div className="column">
+            <i className="fas fa-bars fa-lg" onClick={this.handleClick}></i>
+          </div>
         </div>
-      </div>
       );
     }
   }
