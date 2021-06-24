@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Closed = () => {
-  <i className="fas fa-bars fa-lg" onClick={this.handleClick}></i>;
-};
+const Closed = ({ iconState, handleClick }) => <i className={`fas fa-bars fa-lg ${iconState}`} onClick={handleClick}></i>;
 
 export default Closed;
