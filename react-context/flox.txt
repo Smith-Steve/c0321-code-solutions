@@ -1,0 +1,86 @@
+1. User can Sign Up:
+
+ a.) When application is activated, the App component is mounted on the HTML element which is identified by the ID root.
+ b.) When the App component is mounted, component Nav Bar and page container are mounted within this component. They are always mounted no matter what.
+ c.) The component is then mounted. The constructor is set, and state is set with the necessary components of state.
+ d.) Within page container in the App component, a JavaScript expression is employed to render the component based on the web page.
+        There are a couple of different outcomes that can occur because of this:
+        1. If there is no text in the route, the user is directed to the 'home' component.
+        2. if there is text in it - either 'sign-up' or 'sign-in' - than the user is directed to the Authpage. The 'AuthForm' is rendered within that.
+ e.) <context> The Navbar, which carries values and functions that are a part of context, is always rendered. As those functions and values concern the screen we are on, they concern the screen we are on, we're only going to discuss those.
+     the navbar conditionally renders based on what values have been passed to the context values. If the default value is passed to user, which is null, than the navbar renders two buttons,
+     one of which is 'sign-in', and the other which is 'sign-up'.
+ f.) User selects one of the options to register on the 'Auth-Form' and, the route is changed, as a result of which, the component changes to reflect what is entered into the 'key' - which is what
+     is in the path. These are 'sign-up' and 'sign-in'
+ g.) In the Auth-form itself, a fetch request is fired to the endpoint '/api/auth/sign-in' or in this case, 'api/auth/sign-up'
+ h.) When the fetch request is fired to our endpoint - (which is a post.) the body of the request is deconstructed into two different variables. These are then run through a null check, and if
+     either one of them fails the null check, a 401 error is thrown.
+ i.) Our password is then passed into a hash function within the argon2 module, which we previously mounted in our index.js file, which is just to set up the argon2 module so we have access to
+     its procedures. In this case, we used the 'hash' function, which scrambles the original password.
+ j.) When we have successfully hashed our password, we create a promise which recieves as an argument the password in its' hashed form. This is passed into our database, so that it is the actual
+     value stored within it.
+ k.) We then recieve a 201 message indicating that the sign up was successful.
+ l.) The user is then redirected to the auth-form component, with the props, 'sign-in' passed.
+
+2.) User Can Sign-In:
+
+After the user enters the credentials that they previously used to sign up, the following takes place:
+
+A.) After the user hits 'enter' a fetch request is fired. The 'handleSubmit' function is fired again within the 'auth-form'. This time the action is different however. It is 'sign-in' instead of
+    'sign-up'.
+B.) The fetch request is fired again with this change of arg:
+    1.) First the req body is decomposed so that the user name and password are isolated into their own variables.
+    2.) A null check is performed on these variables. If they are falsey, a 401 error is thrown on them.
+C.) If they are not falsey, a database query is performed. This database query is a select statement.
+D.) If this is returned successfully, then a promise is returned in the variable 'result'.
+    1. A null check is performed on the deconstructed variable 'user' - if it is falsey - an error is thrown.
+E.) Then a verification is performed on the password that was entered. This is done in the following way:
+    1.) the verify function is called from the argon2 module. The password that was entered by the user is entered as one arguement, and the hashed password that is stored in the database
+ 	is entered as the other. If these two do not match, then an error is  thrown.
+F.) If they do match, a response is provided which consists of the 'payload' - which is the 'userId' and the 'userName' and a 'token' which carried within it the payload, and the 'TOKEN_SECRET'
+    from the '.env' file. It is my understanding, that the jwt.sign() method uses the users information, plus the secret token, to create a unique token to that user. It looks like this token
+    can be used to verify that our user is indeed our user, and that the token can be used for things besides user validation like routes and resources that must be validated through this token.
+    I am not 100% on this point as to how these tokens are used exactly, and could use some further clarification.
+G.) Back within our component - 'auth-form.jsx' we are then within the second section of the if block in our fetch. The funciton 'onSignIn' is fired. <context> It is important to note (because it relates
+    to the purpose of the exercise) that 'onSignIn' is an argument that was passed into the AuthForm component. The original function that was passed was 'handleSignIn' which itself lives within
+    context.
+H.) <context> When the user signs in - the handle sign in function - which is in context - sets user - which lives in state in the App component - sets the state of user. User also lives in context.
+    As a consequence of this, the value of user is distributed throughout all the components that access user. Why is this important? My understanding is that this is important because it allows
+    the programmer to monitor whether or not a value is present within user or not. If there is one, then a component will behave one way. If there is not, then the component will behave
+    another way.
+
+
+3.) User can stay signed in.
+
+A.) Were the user to hit 'refresh' in the middle of their use of the application, they would stay logged in.
+B.) After hitting refresh, the application mounts like it initally did. User is set to 'null', very quickly, isAuthorizing: is set to 'true' and route is set to the window.location.
+C.) Component did mount fires (within app.jsx), and listens for a hash change, which in this case there is not one. This time however, instead of user staying 'null' the 'token' variable within the
+    component did mount function is instantiated and takes in the value from the local storage json object at react-context-jwt. Since the user has previously logged in, and stored a value
+    at the key, it will get the value at the key, which is the token previously formed by jwt.sign().
+D.) Then another variable is created, called user - not to be confused with the property of state called 'user' living in state that currently has the value of null. It is a assigned a value
+     based on whether or not the token variable is truthy or not. If it is - the decodeToken module is called from the lib directory, and it creates the value that goes into our variable
+     user - which then goes into state at the property 'user'
+E.) <context> This is a significant change for the application. This is because statements within the application are dependent on user having, or not having a value.
+   From here I'm not sure how far the application continues to render down the path it was initially going to render down (that is to say
+   without user information) or if it just instantly stops, and starts to re-render based on the fact that user now has a value that does not match up with null. None-the-less. React determines
+   that user is not null at some point, and stops rendering as if there were not any user information - determines where the application DOM is different from where it has user information and
+   from where it doesn't and renders those changes. It is my understanding that it will only go as far up the DOM tree as is necessary to confirm that there are no more changes within the DOM
+   tree to be made, and not re-render the entire application.
+
+4.) User can sign out.
+
+A.) <context> The navbar is the component that handles signouts. Once the user signed in, it changed to reflect the change in functionality. The functionality to sign out within the front end
+    - or client - lives within the 'App' component - but it is assigned to context so it is not passed into the navbar as an arguement.
+B.) <context> Handle Signout is a function that renders as a result of whether or not there is any information within user - information which also lives in context. The button is rendered based
+    upon whether or not user is not null.
+C.) When the button is clicked, the 'react-context-jwt' item is removed from local storage. This is our token, which is set everytime the user moves pages, changes pages, or hits refresh. So there will
+    be no token to confirm that the user is a legitimate user. State is then chanaged, and user is changed back to null. As all the user checks are just null checks, the user will be
+    unable to interact with some of the 'content' of the application until they sign in again.
+
+
+Summation:
+
+ This exercise is designed to show context in action. A use case is shown in which instead of passing data and functions through props, they are able to access key information throughout the
+application without the onerous task of pushing data and functions through countless layers of components in order to access necessary data and functionality. Context is necessary for data
+and functionality that is global to the application. Some of the examples listed on React's documentation are good examples - color schemas, langauges - but also user information as exemplified
+in this application which allows a developer to accept or reject them and their actions based on whether or not they are a registered user.
