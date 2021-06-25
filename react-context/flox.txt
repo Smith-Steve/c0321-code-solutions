@@ -73,6 +73,9 @@ A.) <context> The navbar is the component that handles signouts. Once the user s
     - or client - lives within the 'App' component - but it is assigned to context so it is not passed into the navbar as an arguement.
 B.) <context> Handle Signout is a function that renders as a result of whether or not there is any information within user - information which also lives in context. The button is rendered based
     upon whether or not user is not null.
+C.) When the button is clicked, the 'react-context-jwt' item is removed from local storage. This is our token, which is set everytime the user moves pages, changes pages, or hits refresh. So there will
+    be no token to confirm that the user is a legitimate user. State is then chanaged, and user is changed back to null. As all the user checks are just null checks, the user will be
+    unable to interact with some of the 'content' of the application until they sign in again.
 
 
 Summation:
